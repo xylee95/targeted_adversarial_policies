@@ -46,7 +46,7 @@ def main():
 	parser.add_argument('--batchsize', type=int, default=64)
 	parser.add_argument('--epochs', type=int, default=10)
 	parser.add_argument('--entropy-coef', type=float, default=0.0) 
-	parser.add_argument('--save_dir', type=str, default='nominal_inference'
+	parser.add_argument('--save_dir', type=str, default='nominal_inference',
 						help='Directory to save inference results') 
 	parser.add_argument('--goals_norm', type=float, default=1.0, 
 						help='Minimum distance a goal should be generated from agent initial position')
@@ -183,8 +183,8 @@ def main():
 	total_action_mag = np.asarray(total_action_mag)
 	if os.path.exists(args.save_dir) == False:
 		os.makedirs(args.save_dir)
-	np.save(args.save_dir + '/' + str(args.seed) + '_'+ 'inference_stats.npy',inference_stats)
-	np.save(args.save_dir + '/' + str(args.seed) + '_'+ 'action_mag.npy',total_action_mag)
+	np.save(args.save_dir + '/' + args.env + '_' + str(args.seed) + '_'+ 'inference_stats.npy',inference_stats)
+	np.save(args.save_dir + '/' + args.env + '_' + str(args.seed) + '_'+ 'action_mag.npy',total_action_mag)
 
 if __name__ == '__main__':
 	main()

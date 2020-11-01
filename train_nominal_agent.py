@@ -158,8 +158,10 @@ def main():
 	stats = np.array(env_Rs, dtype=float)
 	if os.path.exists(args.save_dir) == False:
 		os.makedirs(args.save_dir)
+		os.makedirs(args.save_dir + '/weights' )
+
 	np.save(args.save_dir + '/' + args.env + '_'+ str(args.seed) + '.npy', stats)
-	agent.save(args.save_dir + '/' + args.env + '_'+ str(args.seed))
+	agent.save(args.save_dir + '/weights/' + args.env + '_'+ str(args.seed))
 
 if __name__ == '__main__':
 	main()
